@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Switch Header</title>
+</head>
+<body>
+  <header>
+    <section class="left-side side">
+      <h2 class="title">Today I am going to be <span class="changing-text">GREAT!</span></h2>
+    </section>
+
+    <section class="right-side side">
+      <h2 class="title">Striving for a better <span class="changing-text">TOMORROW...</span></h2>
+    </section>
+  </header>
+
+  <script>
+    const rightSide = document.querySelector('.right-side');
+
+    const onMoveHandler = e => {
+      // I need to calculate the width of this side based on the position of the mouse
+      const position = e.clientX / window.innerWidth * 100;
+
+      rightSide.style.width = `${position}%`
+    }
+
+    document.onmousemove = e => onMoveHandler(e);
+    document.ontouchmove = e => onMoveHandler(e.touches[0]);
+  </script>
+</body>
+</html>
